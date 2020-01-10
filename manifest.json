@@ -1,0 +1,26 @@
+{
+  "name": "IngatSolat for Chrome",
+  "version": "1.0",
+  "description": "Reminding Muslims in Singapore to pray!",
+  "permissions": [ "declarativeContent", "storage" ],
+  "background": {
+    "scripts": [ "background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/ingatsolat_16.png",
+      "32": "assets/ingatsolat_32.png",
+      "48": "assets/ingatsolat_48.png",
+      "128": "assets/ingatsolat_128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/ingatsolat_16.png",
+    "32": "assets/ingatsolat_32.png",
+    "48": "assets/ingatsolat_48.png",
+    "128": "assets/ingatsolat_128.png"
+  },
+  "manifest_version": 2
+}
