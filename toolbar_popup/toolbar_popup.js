@@ -4,6 +4,7 @@ function callback() {
 
 document.addEventListener('DOMContentLoaded', function () {
     var configureButton = document.getElementById('configure-button');
+
     configureButton.addEventListener('click', function () {
         if (chrome.runtime.openOptionsPage) {
             chrome.runtime.openOptionsPage(callback);
