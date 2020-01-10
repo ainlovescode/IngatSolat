@@ -1,1 +1,0 @@
-let configureButton = document.getElementById("configure")
