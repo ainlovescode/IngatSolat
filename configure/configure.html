@@ -52,7 +52,7 @@
             padding-left:10px;
         }
 
-        #config_loc_button {
+        .settings-button {
             font-family: Montserrat, sans-serif;
             font-size: 12px;
             border: 1px grey solid;
@@ -80,6 +80,21 @@
             line-height: 32px;
         }
         
+        .form-inline{ 
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            padding: 4px 16px 4px 8px;
+            display:table-cell;
+            vertical-align:middle;
+
+        }
+
+        .prayer-offset {
+            width: 30px;
+            margin-right: 10px;
+        }
+        
     </style>
     <script src="configure.js" type="text/javascript" charset="utf-8"></script>
 </head>
@@ -99,7 +114,7 @@
             <tr>
                 <td><b>Current City: </b></td>
                 <td id="location_city">Singapore, Singapore</td>
-                <td id="config_loc"><button id="config_loc_button">⚙️ Change City</button></td>
+                <td id="config_loc"><button class="settings-button">⚙️ Change City</button></td>
             </tr>
         </table>
     </div>
@@ -117,10 +132,16 @@
             </row>
 
             <row>
-                <div class="alarm_bell" style="text-align:center;background-color:blue; padding:5px;">
+                <div class="alarm_bell" style="text-align:center;padding:5px;">
                     <div class="button" id="subuh_alarm_button" style="margin:auto;background-image:url('../assets/images/alarm_off.png');width:32px;height:32px"></div>
                 </div>
                 <p>Subuh</p>
+                <p id="subuh_suggested">05:43</p>
+                <form class="form-inline">
+                    <input type="number" class="prayer-offset" id="subuh-offset-field" />
+                    <button type="submit" class="settings-button" id="subuh-offset-button">Update offset</button>
+                </form>
+                <p id="subuh_adjusted">05:43</p>
 
             </row>
             
