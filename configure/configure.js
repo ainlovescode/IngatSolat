@@ -1,10 +1,16 @@
-document.addEventListener('DOMContentLoaded', function () {
+import { PrayerTimeUpdater } from "./PrayerTimeUpdater.js";
 
+document.addEventListener('DOMContentLoaded', function () {
+    var ptu = new PrayerTimeUpdater();
+    ptu.get_month_prayer_times();
+
+    var date = new Date();
+    var curr_month = date.getMonth() + 1;
+    var curr_year = date.getFullYear();
 
     var subuh_alarm_button = document.getElementById('subuh_alarm_button');
     var subuh_offset_button = document.getElementById('subuh-offset-button');
     var subuh_offset_field = document.getElementById('subuh-offset-field');
-
 
     chrome.storage.sync.get(null, function (result) {
         if (result.subuh_alarm == true) {
@@ -16,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-        if (result.subuh_offset != null) {
-            subuh_offset_field.value = result.subuh_offset;
+        if (result.subuh_offset_key != null) {
+            subuh_offset_field.value = result.subuh_offset_key;
         } else {
             subuh_offset_field.value = 0;
         }
@@ -44,11 +50,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     subuh_offset_button.addEventListener('click', function () {
-        chrome.storage.sync.set({ subuh_offset: subuh_offset_field.value }, function () {
+        chrome.storage.sync.set({ subuh_offset_key: subuh_offset_field.value }, function () {
             console.log("subuh_offset set to " + subuh_offset_field.value);
         });
     })
-
 
 
     var save_config_button = document.getElementById('save_config_button');
