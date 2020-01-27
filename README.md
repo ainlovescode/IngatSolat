@@ -1,4 +1,4 @@
-Welcome to the IngatSolat repository!
+﻿Welcome to the IngatSolat repository!
 ==========
 IngatSolat is my attempt to create a Chrome extension to remind Singapore's Muslim users to pray! 
 
@@ -19,9 +19,9 @@ How does it all work?
 The IngatSolat application consists of the toolbar menu, and the configuration menu.
 
 - Toolbar menu:
-...The toolbar menu displays prayer times for the day, and on-click alarm settings. Alarms will trigger a browser alert.
+⋅⋅-The toolbar menu displays prayer times for the day, and on-click alarm settings. Alarms will trigger a browser alert.
 - Configuration menu:
-..- The configuration menu has advanced settings, including offset settings for all or individual prayers. Settings will be stored in-browser i.e. in chrome.storage.sync object
+⋅⋅- The configuration menu has advanced settings, including offset settings for all or individual prayers. Settings will be stored in-browser i.e. in chrome.storage.sync object
 
 
 Future plans
