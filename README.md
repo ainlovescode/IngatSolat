@@ -21,7 +21,8 @@ The IngatSolat application consists of the toolbar menu, and the configuration m
 - Toolbar menu:
 ..The toolbar menu displays prayer times for the day, and on-click alarm settings. Alarms will trigger a browser alert.
 - Configuration menu:
-..The configuration menu has advanced settings, including offset settings for all or individual prayers.
+..- The configuration menu has advanced settings, including offset settings for all or individual prayers. Settings will be stored in-browser i.e. in chrome.storage.sync object
+
 
 Future plans
 ------------
