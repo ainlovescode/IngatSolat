@@ -1,0 +1,20 @@
+{
+  "name": "ingatsolat",
+  "version": "1.0.0",
+  "description": "A Chrome extension to customise prayer times for SIngapore users",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ainlovescode/IngatSolat.git"
+  },
+  "author": "ainlovescode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ainlovescode/IngatSolat/issues"
+  },
+  "homepage": "https://github.com/ainlovescode/IngatSolat#readme"
+}

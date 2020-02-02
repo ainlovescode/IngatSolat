@@ -116,7 +116,7 @@
             <tr>
                 <td><b>Current City: </b></td>
                 <td id="location_city">Singapore, Singapore</td>
-                <td id="config_loc"><button class="settings-button">⚙️ Change City</button></td>
+                <td><button style="margin-left:8px;" class="settings-button" disabled>⚙️ Change City</button></td>
             </tr>
         </table>
     </div>
@@ -124,7 +124,7 @@
     <div class="settings_style">
         <div class="settings_heading"><strong>🕋 Prayer Settings</strong></div>
 
-        <div class="table" style="font-size:14px; padding-left: 32px; padding-top:16px;">
+        <div class="table" id ="prayer_times_table" style="font-size:14px; padding-left: 32px; padding-top:16px;">
             <row>
                 <p>Alarm ON/OFF</p>
                 <p>Prayer</p>
@@ -134,13 +134,13 @@
 
             <row>
                 <div class="alarm_bell" style="text-align:center;padding:5px;">
-                    <div class="button" id="subuh_alarm_button" style="margin:auto;background-image:url('../assets/images/alarm_off.png');width:32px;height:32px"></div>
+                    <div class="button" id="fajr_alarm_button" style="margin:auto;background-image:url('../assets/images/alarm_off.png');width:32px;height:32px"></div>
                 </div>
-                <p>Subuh</p>
-                <p id="subuh_adjusted">05:43</p>
+                <p>Fajr</p>
+                <p id="fajr_adjusted_time"></p>
                 <form class="form-inline">
-                    <input type="number" class="prayer-offset" id="subuh-offset-field" />
-                    <button type="button" class="settings-button" id="subuh-offset-button">Update offset</button>
+                    <input type="number" class="prayer-offset" id="fajr_offset_field" style="font-family: 'Montserrat', sans-serif;" />
+                    <button type="button" class="settings-button" id="fajr_offset_button">Update offset</button>
                 </form>
 
             </row>

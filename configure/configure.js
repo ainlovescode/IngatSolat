@@ -1,47 +1,52 @@
 import { PrayerTimeUpdater } from "./PrayerTimeUpdater.js";
 
 document.addEventListener('DOMContentLoaded', function () {
-    var ptu = new PrayerTimeUpdater();
-    ptu.get_month_prayer_times();
 
     var date = new Date();
-    var curr_month = date.getMonth() + 1;
-    var curr_year = date.getFullYear();
+    var curr_day = date.getDate();
 
-    var subuh_alarm_button = document.getElementById('subuh_alarm_button');
-    var subuh_offset_button = document.getElementById('subuh-offset-button');
-    var subuh_offset_field = document.getElementById('subuh-offset-field');
+    var prayerTimeUpdater = new PrayerTimeUpdater();
+
+    var fajr_alarm_button = document.getElementById('fajr_alarm_button');
+    var fajr_adjusted_time = document.getElementById('fajr_adjusted_time');
+    var fajr_offset_field = document.getElementById('fajr_offset_field');
+    var fajr_offset_button = document.getElementById('fajr_offset_button');
 
     chrome.storage.sync.get(null, function (result) {
-        if (result.subuh_alarm == true) {
-            subuh_alarm_button.style.backgroundImage = "url('../assets/images/alarm_on.png')";
+        if (result.fajr_alarm == true) {
+            fajr_alarm_button.style.backgroundImage = "url('../assets/images/alarm_on.png')";
             console.log('subuh_alarm_setting initialised to ' + true);
         } else {
-            subuh_alarm_button.style.backgroundImage = "url('../assets/images/alarm_off.png')";
+            fajr_alarm_button.style.backgroundImage = "url('../assets/images/alarm_off.png')";
             console.log('subuh_alarm_setting initialised to ' + false);
 
         }
 
-        if (result.subuh_offset_key != null) {
-            subuh_offset_field.value = result.subuh_offset_key;
+        fajr_adjusted_time.innerHTML = result.month_data_key[String(curr_day)]["Fajr"];
+
+        if (result.fajr_offset_key != null) {
+            fajr_offset_field.value = result.fajr_offset_key;
+            
+
         } else {
-            subuh_offset_field.value = 0;
+            fajr_offset_field.value = 0;
         }
 
     });
 
-    subuh_alarm_button.addEventListener('click', function () {
-        chrome.storage.sync.get("subuh_alarm", function (result) {
-            if (result.subuh_alarm == true) {
-                subuh_alarm_button.style.backgroundImage = "url('../assets/images/alarm_off.png')";
-                chrome.storage.sync.set({ subuh_alarm: false }, function () {
-                    console.log('subuh_alarm_setting is set to ' + false);
+    fajr_alarm_button.addEventListener('click', function () {
+        chrome.storage.sync.get("fajr_alarm", function (result) {
+            if (result.fajr_alarm == true) {
+                fajr_alarm_button.style.backgroundImage = "url('../assets/images/alarm_off.png')";
+                chrome.storage.sync.set({ fajr_alarm: false }, function () {
+                    console.log('fajr_alarm_setting is set to ' + false);
                 });
             } else {
-                subuh_alarm_button.style.backgroundImage = "url('../assets/images/alarm_on.png')";
-                chrome.storage.sync.set({ subuh_alarm: true }, function () {
-                    console.log('subuh_alarm_setting is set to ' + true);
+                fajr_alarm_button.style.backgroundImage = "url('../assets/images/alarm_on.png')";
+                chrome.storage.sync.set({ fajr_alarm: true }, function () {
+                    console.log('fajr_alarm_setting is set to ' + true);
                 });
+
 
             }
 
@@ -49,16 +54,33 @@ document.addEventListener('DOMContentLoaded', function () {
         
     });
 
-    subuh_offset_button.addEventListener('click', function () {
-        chrome.storage.sync.set({ subuh_offset_key: subuh_offset_field.value }, function () {
-            console.log("subuh_offset set to " + subuh_offset_field.value);
+    fajr_offset_button.addEventListener('click', function () {
+        chrome.storage.sync.set({ fajr_offset_key: fajr_offset_field.value }, function () {
+            console.log("fajr_offset set to " + fajr_offset_field.value);
         });
+
+        prayerTimeUpdater.update_adjusted_time("Fajr");
+
+        chrome.storage.sync.get("month_data_key", function (result) {
+            console.log(result.month_data_key[String(curr_day)]["Fajr"]);
+            console.log("curr_Day is: " + String(curr_day) + "for fajr time: " + result.month_data_key[String(curr_day)]["Fajr"]);
+            fajr_adjusted_time.innerHTML = result.month_data_key[String(curr_day)]["Fajr"];
+
+        });
+
+
+
+
+        
     })
+
+
 
 
     var save_config_button = document.getElementById('save_config_button');
     save_config_button.addEventListener('click', function () {
         alert("Configuration saved! \nClick on Close Menu to return to the previous page.");
+        //document.getElementById('prayer_times_table').disabled = true;
     });
 
     var close_menu_button = document.getElementById('close_menu_button');
