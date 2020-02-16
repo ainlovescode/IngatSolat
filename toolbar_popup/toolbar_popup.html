@@ -1,31 +1,139 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300&display=swap" rel="stylesheet">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            height: 200px;
-            width: 300px;
-            text-align: center;
-        }
+      body {
+        height: 200px;
+        width: 300px;
+        text-align: center;
+      }
 
-        #configure-button {
-            height: 32px;
-            width: 100%;
-            border-radius: 5px;
-            border: 1px grey solid;
-            font-family: "Montserrat", sans-serif;
-        }
+      #configure-button {
+        height: 32px;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px grey solid;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .table {
+        display: table;
+      }
+
+      row {
+        display: table-row;
+      }
+
+      p,
+      .alarm_bell {
+        max-width: 100%;
+        height: 100%;
+        padding: 4px 16px 4px 8px;
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+        line-height: 32px;
+      }
     </style>
-    <script type="text/javascript" src="toolbar_popup.js" charset="utf-8"></script>
-</head>
+    <script
+      type="text/javascript"
+      src="toolbar_popup.js"
+      charset="utf-8"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <div id="ingatsolat_heading" style="width:100%">
-        <img src="../assets/images/ingatsolat_48.png" style="float:left; " />
-        <h2 style="float:left;">IngatSolat</h2>
+      <img src="../assets/images/ingatsolat_48.png" style="float:left; " />
+      <h2 style="float:left;">IngatSolat</h2>
     </div>
     <hr style="width:100%" />
-    <button id="configure-button">⚙️ Configure Settings</button>
-</body>
+    <div class="table" id="prayer_times_popup" style="font: size 12px">
+      <row>
+        <p><b>Alarm ON/OFF</b></p>
+        <p><b>Prayer</b></p>
+        <p><b>Adj. Time</b></p>
+      </row>
+
+      <row>
+        <div class="alarm_bell" style="text-align:center;padding:5px;">
+          <div
+            class="button"
+            id="fajr_alarm_button"
+            style="margin:auto;background-image:url('../assets/images/alarm_off.png');width:32px;height:32px"
+          ></div>
+        </div>
+        <p>Fajr</p>
+        <p id="fajr_adjusted_time"></p>
+      </row>
+
+      <row>
+        <div class="alarm_bell" style="text-align:center;padding:5px;">
+          <div
+            class="button"
+            id="syuruk_alarm_button"
+            style="margin:auto;background-image:url('../assets/images/alarm_off.png');width:32px;height:32px"
+          ></div>
+        </div>
+        <p>Syuruk</p>
+        <p id="syuruk_adjusted_time"></p>
+      </row>
+
+      <row>
+        <div class="alarm_bell" style="text-align:center;padding:5px;">
+          <div
+            class="button"
+            id="dhuhr_alarm_button"
+            style="margin:auto;background-image:url('../assets/images/alarm_off.png');width:32px;height:32px"
+          ></div>
+        </div>
+        <p>Dhuhr</p>
+        <p id="dhuhr_adjusted_time"></p>
+      </row>
+
+      <row>
+        <div class="alarm_bell" style="text-align:center;padding:5px;">
+          <div
+            class="button"
+            id="asr_alarm_button"
+            style="margin:auto;background-image:url('../assets/images/alarm_off.png');width:32px;height:32px"
+          ></div>
+        </div>
+        <p>Asr</p>
+        <p id="asr_adjusted_time"></p>
+      </row>
+
+      <row>
+        <div class="alarm_bell" style="text-align:center;padding:5px;">
+          <div
+            class="button"
+            id="maghrib_alarm_button"
+            style="margin:auto;background-image:url('../assets/images/alarm_off.png');width:32px;height:32px"
+          ></div>
+        </div>
+        <p>Maghrib</p>
+        <p id="maghrib_adjusted_time"></p>
+      </row>
+
+      <row>
+        <div class="alarm_bell" style="text-align:center;padding:5px;">
+          <div
+            class="button"
+            id="isha_alarm_button"
+            style="margin:auto;background-image:url('../assets/images/alarm_off.png');width:32px;height:32px"
+          ></div>
+        </div>
+        <p>Isha</p>
+        <p id="isha_adjusted_time"></p>
+      </row>
+    </div>
+    <hr style="width:100%" />
+    <button id="configure-button" style="margin-bottom:5px;">
+      ⚙️ Configure Settings
+    </button>
+  </body>
 </html>
